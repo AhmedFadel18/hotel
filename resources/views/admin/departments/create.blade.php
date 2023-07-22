@@ -11,17 +11,18 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        @if($errors->any())
-        @foreach ($errors as $error)
-        <p class="alert-danger">{{ $error }}</p>
-        @endforeach
+        @if ($errors->any())
+            @foreach ($errors as $error)
+                <p class="alert-danger">{{ $error }}</p>
+            @endforeach
         @endif
 
         @if (Session::has('message'))
             <div class="alert-success">{{ session('message') }}</div>
         @endif
         <div class="card-footer clearfix">
-            <a href="{{ route('admin.departments.index') }}" class="btn btn-sm btn-secondary float-right">View All Department Types</a>
+            <a href="{{ route('admin.departments.index') }}" class="btn btn-sm btn-secondary float-right">View All
+                Departments</a>
         </div>
         <form action="{{ route('admin.departments.store') }}" method="POST">
             @csrf
@@ -33,18 +34,20 @@
                     </tr>
                     <tr>
                         <th>Department Details :</th>
-                            <td><textarea name="details" class="form-control"></textarea></td>
+                        <td>
+                            <textarea name="details" class="form-control"></textarea>
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <input type="submit" class="btn btn-info">
                         </td>
                     </tr>
-                    </table>
-                </div>
-             </form>
-                <!-- /.table-responsive -->
+                </table>
             </div>
-            <!-- /.card-body -->
+        </form>
+        <!-- /.table-responsive -->
+    </div>
+    <!-- /.card-body -->
 
 @endsection

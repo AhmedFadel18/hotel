@@ -4,15 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\CustomerBookingContoller;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\RoomTypeController;
-use App\Http\Controllers\CustomerBookingContoller;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DepartmentController;
-use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\Admin\ServicesController;
 
 Route::prefix('admin')->group(function () {
     // Auth Routes
@@ -79,6 +80,9 @@ Route::prefix('admin')->group(function () {
     //Payment Routes
     Route::get('/booking/success', [BookingController::class, 'booking_payment_success'])->name('admin.booking.success');
     Route::get('/booking/fail', [BookingController::class, 'booking_payment_fail'])->name('admin.booking.fail');
+
+    // Services Routes
+    Route::get('/services', [ServicesController::class, 'index'])->name('home.services.index');
 });
 
 
@@ -102,5 +106,4 @@ Route::get('/booking/fail', [CustomerBookingContoller::class, 'booking_payment_f
 
 Route::get('/booking/available-rooms/{data}', [CustomerBookingContoller::class, 'availableRooms'])->name('booking.available_rooms');
 
-Route::get('/booking/{id}/payment',[PaymentsController::class,'create'])->name('home.bookings.payments.create');
-//
+Route::get('/booking/{id}/payment', [PaymentsController::class, 'create'])->name('home.bookings.payments.create');

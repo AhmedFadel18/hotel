@@ -44,7 +44,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <a href="{{ route('admin.departments.create') }}" class="btn btn-sm btn-info float-left">Add New Department Type</a>
-            <a href="{{ route('admin.departments.index') }}" class="btn btn-sm btn-secondary float-right">View All Department Types</a>
+            <a href="{{ route('admin.departments.create') }}" class="btn btn-sm btn-info float-left">Add New Department</a>
+            <a href="{{ route('admin.departments.index') }}" class="btn btn-sm btn-secondary float-right">View All Departments</a>
         </div>
 @endsection
