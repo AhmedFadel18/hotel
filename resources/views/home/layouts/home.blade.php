@@ -35,7 +35,7 @@
     <!--================ End Accomodation Area  =================-->
 
     <!--================ Start Facilities Area  =================-->
-    @include('home.layouts.facilities')
+    @include('home.layouts.services')
     <!--================ End Facilities Area  =================-->
 
     <!--================ start footer Area  =================-->
