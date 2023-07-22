@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\TestimonialController;
 
 Route::prefix('admin')->group(function () {
     // Auth Routes
@@ -89,6 +90,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('admin.services.update');
     Route::get('/services/show/{id}', [ServicesController::class, 'show'])->name('admin.services.show');
     Route::get('/services/delete/{id}', [ServicesController::class, 'delete'])->name('admin.services.delete');
+
+    Route::post('/testimonials/store', [TestimonialController::class, 'store'])->name('home.testimonials.store');
 
 });
 

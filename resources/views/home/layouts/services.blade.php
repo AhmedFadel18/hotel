@@ -3,7 +3,7 @@
     </div>
     <div class="container">
         <div class="section_title text-center">
-            <h2 class="title_w">Royal Facilities</h2>
+            <h2 class="title_w">Our Services</h2>
             <p>Who are in extremely love with eco friendly system.</p>
         </div>
         <div class="row mb_30">

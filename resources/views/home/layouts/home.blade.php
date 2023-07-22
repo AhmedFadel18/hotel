@@ -34,6 +34,10 @@
     @yield('content')
     <!--================ End Accomodation Area  =================-->
 
+    <!--================ Start Testimonial Area  =================-->
+    @include('home.layouts.testimonial')
+    <!--================ End Testimonial Area  =================-->
+
     <!--================ Start Facilities Area  =================-->
     @include('home.layouts.services')
     <!--================ End Facilities Area  =================-->
