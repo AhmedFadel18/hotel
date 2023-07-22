@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ asset('home/vendors/owl-carousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('home/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('home/vendors/nice-select/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/vendors/owl-carousel/owl.carousel.min.css') }}">
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('home/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}">
