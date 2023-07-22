@@ -154,13 +154,37 @@
               <li class="nav-item">
                 <a href="{{ route('admin.booking.index') }}" class="nav-link @if (request()->is('admin/booking')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show Booking</p>
+                  <p>Show Bookings</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('admin.booking.create') }}" class="nav-link @if (request()->is('admin/booking/create')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Booking</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview @if (request()->is('admin/services*')) menu-open @endif">
+            <a href="#" class="nav-link @if (request()->is('admin/services*')) active @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Services
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.services.index') }}" class="nav-link @if (request()->is('admin/services')) active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Show Services</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.services.create') }}" class="nav-link @if (request()->is('admin/services/create')) active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New Service</p>
                 </a>
               </li>
             </ul>

@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\File;
 class ServicesController extends Controller
 {
     public function index(){
-        return view('admin.services.index');
+        $services=Service::all();
+        return view('admin.services.index',compact('services'));
     }
 
     public function create(){
@@ -38,6 +39,11 @@ class ServicesController extends Controller
         }
         $service->save();
         return redirect()->back()->with('message','The Service Added Successfully.');
+    }
+
+    public function show($id){
+        $data = Service::find($id);
+        return view('admin.services.show',compact('data'));
     }
 
     public function edit($id){

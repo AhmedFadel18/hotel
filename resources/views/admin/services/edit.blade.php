@@ -26,15 +26,15 @@
             <table class="table m-0">
                 <tr>
                     <th>Service Title :</th>
-                    <td><input type="text" name="title" class="form-control"></td>
+                    <td><input type="text" name="title" value="{{ $data->title }}" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>Service Summary :</th>
-                    <td><input type="text" name="summary" class="form-control"></td>
+                    <td><input type="text" name="summary" value="{{ $data->summary }}" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>Service Description :</th>
-                    <td><input type="text" name="description" class="form-control"></td>
+                    <td><input type="text" name="description" value="{{ $data->description }}" class="form-control"></td>
                 </tr>
                 <tr>
                     <th>Service Image :</th>

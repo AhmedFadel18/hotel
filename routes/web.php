@@ -82,7 +82,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/booking/fail', [BookingController::class, 'booking_payment_fail'])->name('admin.booking.fail');
 
     // Services Routes
-    Route::get('/services', [ServicesController::class, 'index'])->name('home.services.index');
+    Route::get('/services', [ServicesController::class, 'index'])->name('admin.services.index');
+    Route::get('/services/create', [ServicesController::class, 'create'])->name('admin.services.create');
+    Route::post('/services/store', [ServicesController::class, 'store'])->name('admin.services.store');
+    Route::get('/services/edit/{id}', [ServicesController::class, 'edit'])->name('admin.services.edit');
+    Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('admin.services.update');
+    Route::get('/services/show/{id}', [ServicesController::class, 'show'])->name('admin.services.show');
+    Route::get('/services/delete/{id}', [ServicesController::class, 'delete'])->name('admin.services.delete');
+
 });
 
 
