@@ -76,13 +76,13 @@ class AuthController extends Controller
 
     public function forgetPassword()
     {
-        return view('auth.forget-password');
+        return view('home.auth.forget-password');
     }
 
     public function submitForgetPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|exists:users'
+            'email' => 'required|exists:customers'
         ]);
         $token = Str::random(64);
         DB::table('password_resets')->insert([
@@ -90,35 +90,37 @@ class AuthController extends Controller
             'token' => $token,
             'created_at' => Carbon::now(),
         ]);
-        Mail::send('emails.forget-password', ['token' => $token], function ($message) use ($request) {
+        Mail::send('home.emails.forget-password', ['token' => $token], function ($message) use ($request) {
             $message->to($request->email);
+            $message->from('hotel@gmail.com');
+
             $message->subject('Password Reset');
 
-            return back()->with('message', 'We have send you the password reset link. Please check your email inbox');
+            return redirect()-> back()->with('message', 'We have send you the password reset link. Please check your email inbox');
         });
     }
     public function resetPassword($token)
     {
-        return view('auth.reset-password', compact('token'));
+        return view('home.auth.reset-password', compact('token'));
     }
 
     public function confirmResetPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|exists:users',
-            'password' => 'required|min:6|confirmed',
-            'confirm_password' => 'required',
+            'email' => 'required|exists:customers',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required',
         ]);
-        $chekToken = DB::table('password_resets')
+        $checkToken = DB::table('password_resets')
             ->where(['email' => $request->email, 'token' => $request->token])->first();
-        if (!$chekToken) {
+        if (!$checkToken) {
             return back()->withInput()
                 ->with('message', 'Invalid token');
         }
-        $user = User::where('email', $request->email);
-        $user->update(['password' => Hash::make($request->password)]);
+        $customer = Customer::where('email', $request->email);
+        $customer->update(['password' => Hash::make($request->password)]);
 
         DB::table('password_resets')->where('email', $request->email)->delete();
-        return redirect('login')->with('message', 'Your password have changed');
+        return redirect()->route('home.login')->with('message', 'Your password have changed');
     }
 }

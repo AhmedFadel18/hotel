@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\TestimonialController;
@@ -91,8 +92,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/services/show/{id}', [ServicesController::class, 'show'])->name('admin.services.show');
     Route::get('/services/delete/{id}', [ServicesController::class, 'delete'])->name('admin.services.delete');
 
-    Route::post('/testimonials/store', [TestimonialController::class, 'store'])->name('home.testimonials.store');
-
+    // Testimonials Route
+    Route::get('/testimonials', [AdminController::class, 'testimonials'])->name('admin.testimonials');
+    Route::get('/delete-testimonial/{id}', [AdminController::class, 'deleteDtestimonial'])->name('admin.testimonials.delete');
 });
 
 
@@ -107,6 +109,11 @@ Route::get('/register', [AuthController::class, 'registeration'])->name('home.re
 Route::post('/register', [AuthController::class, 'storeCustomer'])->name('home.register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('home.logout');
 
+Route::get('forget-password',[AuthController::class,'forgetPassword'])->name('home.show_forget_password');
+Route::post('forget-password',[AuthController::class,'submitForgetPassword'])->name('home.submit_forget_password');
+Route::get('reset-password{token}',[AuthController::class,'resetPassword'])->name('home.show_reset_password');
+Route::post('reset-password',[AuthController::class,'confirmResetPassword'])->name('home.submit_reset_password');
+
 
 Route::get('/booking/create', [CustomerBookingContoller::class, 'index'])->name('home.booking');
 Route::post('/booking/store', [CustomerBookingContoller::class, 'store'])->name('home.booking.store');
@@ -117,3 +124,10 @@ Route::get('/booking/fail', [CustomerBookingContoller::class, 'booking_payment_f
 Route::get('/booking/available-rooms/{data}', [CustomerBookingContoller::class, 'availableRooms'])->name('booking.available_rooms');
 
 Route::get('/booking/{id}/payment', [PaymentsController::class, 'create'])->name('home.bookings.payments.create');
+
+// Testimonials Route
+Route::post('/testimonials/store', [TestimonialController::class, 'store'])->name('home.testimonials.store');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('home.contact');
+
+Route::post('/store',[ContactController::class,'store'])->name('home.mail.store');

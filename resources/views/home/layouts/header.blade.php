@@ -23,7 +23,7 @@
                     <li class="nav-item"><a class="nav-link text-primary" href="{{ route('home.login') }}">Log In</a></li>
                     @endif
                     <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home.contact') }}">Contact</a></li>
                 </ul>
             </div>
         </nav>

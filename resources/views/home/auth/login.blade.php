@@ -63,6 +63,9 @@
                                     </div>
                                 </div>
                             </form>
+                            <div>
+                                <a href="{{ route('home.show_forget_password') }}" >Forget Password?</a>
+                            </div>
                         </div>
                     </div>
                 </div>

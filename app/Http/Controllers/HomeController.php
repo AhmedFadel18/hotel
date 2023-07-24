@@ -22,6 +22,8 @@ class HomeController extends Controller
 
     public function show($id){
         $roomType =RoomType::find($id);
-        return view ('home.show',compact('roomType'));
+        $testimonials=Testimonial::all();
+        $services=Service::all();
+        return view ('home.show',compact('roomType','testimonials','services'));
     }
 }

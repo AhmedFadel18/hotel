@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Staff;
+use App\Models\Testimonial;
 
 class AdminController extends Controller
 {
@@ -25,5 +26,16 @@ class AdminController extends Controller
         }
 
         return view('admin.index',compact('total_bookings','total_rooms','total_customers','total_staff','labels','data'));
+    }
+
+    public function testimonials(){
+        $testimonials = Testimonial::all();
+        return view('admin.testimonials',compact('testimonials'));
+    }
+
+    public function deleteDtestimonial($id){
+        $testimonial = Testimonial::find($id);
+        $testimonial->delete();
+        return redirect()->back()->with('message','The Testimonial Deleted Successfully.');
     }
 }

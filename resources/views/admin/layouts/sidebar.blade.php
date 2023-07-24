@@ -12,7 +12,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"></a>
         </div>
       </div>
 
@@ -23,7 +23,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview @if (request()->is('admin/room-types*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/room-types*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-city"></i>
               <p>
                 Room Types
                 <i class="right fas fa-angle-left"></i>
@@ -48,7 +48,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/rooms*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/rooms*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-building"></i>
               <p>
                 Rooms
                 <i class="right fas fa-angle-left"></i>
@@ -72,7 +72,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/departments*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/departments*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-hotel"></i>
               <p>
                 Departments
                 <i class="right fas fa-angle-left"></i>
@@ -96,7 +96,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/staff*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/staff*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Staff
                 <i class="right fas fa-angle-left"></i>
@@ -120,7 +120,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/customers*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/customers*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-users"></i>
               <p>
                 Customers
                 <i class="right fas fa-angle-left"></i>
@@ -144,7 +144,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/booking*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/booking*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-credit-card"></i>
               <p>
                 Booking
                 <i class="right fas fa-angle-left"></i>
@@ -168,7 +168,7 @@
 
           <li class="nav-item has-treeview @if (request()->is('admin/services*')) menu-open @endif">
             <a href="#" class="nav-link @if (request()->is('admin/services*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa fa-sitemap"></i>
               <p>
                 Services
                 <i class="right fas fa-angle-left"></i>
@@ -188,6 +188,13 @@
                 </a>
               </li>
             </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.testimonials') }}" class="nav-link @if (request()->is('admin/testimonials')) active @endif">
+              <i class="fa fa-comment"></i>
+              <p>Testimonials</p>
+            </a>
           </li>
 
           <li class="nav-item">
