@@ -8,29 +8,31 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function index(){
-        return view ('home.contact-us');
+    public function index()
+    {
+        return view('home.contact-us');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'subject'=>'required',
-            'message'=>'required',
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
         ]);
 
-        $data=[
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'subject'=>$request->subject,
-            'message'=>$request->message,
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
         ];
 
-        Mail::send('mail', $data, function ($message) {
-            $message->to('afadel.dev18@gmail.com', 'Fadel')->subject('Hotel Contact Us Query');
-            $message->from('hotel@gmail.com' , 'Hotel');
+        Mail::send('emails.customer-query', ['data'=>$data], function ($message) use ($data) {
+            $message->to('hotel@gmail.com')->subject('Hotel Contact Us Query');
+            $message->from($data['email']);
         });
-        return redirect()->back()->with('message','Thanks, Your Query Sent Successfully.');
+        return redirect()->back()->with('message', 'Thanks, Your Query Sent Successfully.');
     }
 }

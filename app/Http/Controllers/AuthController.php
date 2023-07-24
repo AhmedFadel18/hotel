@@ -90,7 +90,7 @@ class AuthController extends Controller
             'token' => $token,
             'created_at' => Carbon::now(),
         ]);
-        Mail::send('home.emails.forget-password', ['token' => $token], function ($message) use ($request) {
+        Mail::send('emails.forget-password', ['token' => $token], function ($message) use ($request) {
             $message->to($request->email);
             $message->from('hotel@gmail.com');
 
